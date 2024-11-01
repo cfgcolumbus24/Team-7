@@ -1,20 +1,37 @@
-// db/connection.js
-import mongoose from "mongoose";
-import dotenv from "dotenv";
+import { MongoClient, ServerApiVersion} from 'mongodb';
+import "dotenv/config.js";
 
-dotenv.config();
+const URI = process.env.MONGODB_URI || ""
+const client = new MongoClient(URI, {
+    serverApi: {
+        version: ServerApiVersion.v1,
 
-const URI = process.env.MONGODB_URI || "";
+        // Client enforces adherence to API rules,
+        // meaning that if a functionality or feature 
+        // that is outside of the API rules known realm,
+        // an error will be thrown
+        strict: true,
 
-mongoose.connect(URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log("MongoDB connected"))
-  .catch((error) => console.error("MongoDB connection error:", error));
-  
-  let db = client.db("cfgTesting");
+        // Throws errors if updates are recommended
+        deprecationErrors: true,
+    },
+});
 
-export default mongoose.connection;
+// Pinging for admin database
+try {
+    //  Connect client (the database) to the server
+    await client.connect();
+    // Send ping to confirm a successful connection
+    await client.db("cfgTesting").command({ ping: 1 });
+    console.log(
+        "Pinged your deployment. You successfully connected to MongoDB!"
+    );
+} catch (error) {
+    console.error(err);
+}
+
+let db = client.db("cfgTesting");
+
+export default db;
 
 
