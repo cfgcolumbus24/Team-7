@@ -1,0 +1,16 @@
+import express from 'express';
+import { query } from '../controllers/llmController.js';
+
+const router = express.Router();
+
+router.post("/query", async (req, res) => {
+    try {
+        await query(req.body.prompt);
+        res.end();
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error ")
+    }
+})
+
+export default router;
