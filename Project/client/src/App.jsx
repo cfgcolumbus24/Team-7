@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
 import ChatBox from './ChatBox'
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <div className="card">
-        <h1>Search Data:</h1>
+        <h1>Data Search Tool</h1>
         <ChatBox onSubmit={handleTextSubmit} />
       </div>
     </>

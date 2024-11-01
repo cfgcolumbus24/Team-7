@@ -22,17 +22,22 @@ const ChatBox = ({ onSubmit })=> {
 
     return (
         <div className="text-box">
-            <input 
-                className="text-input"
-                type="text"
-                value={text}
-                onChange={handleChange}
-                onKeyDown={handleKeyPress}
-                placeholder="Enter your text..."
-            />
-            <button className="submit-button" onClick={handleSubmit}>
-                Submit
-            </button>
+            <div className="message-display">
+                <div className="placeholder">Messages displayed here...</div>
+            </div>
+            <div className="input-area">
+                <input 
+                    className="text-input"
+                    type="text"
+                    value={text}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyPress}
+                    placeholder="Enter your text..."
+                />
+                <button className="submit-button" onClick={handleSubmit}>
+                    Submit
+                </button>
+            </div>
         </div>
     );
 }
