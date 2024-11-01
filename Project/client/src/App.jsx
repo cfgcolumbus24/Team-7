@@ -9,8 +9,10 @@ function App() {
 
   return (
     <>
-      <h1>Text Box:</h1>
-      <ChatBox onSubmit={handleTextSubmit} />
+      <div className="card">
+        <h1>Search Data:</h1>
+        <ChatBox onSubmit={handleTextSubmit} />
+      </div>
     </>
   );
 };
