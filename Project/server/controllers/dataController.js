@@ -21,3 +21,4 @@ export const createMockData = async (req, res) => {
     res.status(400).json({ message: "Error creating data", error });
   }
 };
+

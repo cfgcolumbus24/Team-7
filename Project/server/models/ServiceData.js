@@ -2,9 +2,9 @@
 import mongoose from "mongoose";
 
 const ServiceDataSchema = new mongoose.Schema({
-  serviceType: { type: String, required: true },  // e.g., "Crisis Call", "Assessment"
-  clientCount: { type: Number, required: true },  // Number of clients served
-  date: { type: Date, required: true },           // Date of the data entry
+  serviceType: { type: String, required: true },
+  clientCount: { type: Number, required: true },
+  date: { type: Date, required: true },
   metrics: {
     crisisCalls: { type: Number },
     assessments: { type: Number },
