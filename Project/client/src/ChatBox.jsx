@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const ChatBox = ({ onSubmit, messages }) => {
   const [text, setText] = useState('');
+  const [showMessages, setShowMessages] = useState(false);
 
   const handleChange = (event) => setText(event.target.value);
 
@@ -10,6 +11,7 @@ const ChatBox = ({ onSubmit, messages }) => {
     if (text.trim()) {
       onSubmit(text);
       setText('');
+      setShowMessages(true);
     }
   };
 
@@ -23,14 +25,18 @@ const ChatBox = ({ onSubmit, messages }) => {
         id="message-container"
         className="flex-grow overflow-y-auto border rounded-md p-2 mb-2"
       >
-        {messages.length > 0 ? (
-            messages.map((message, index) => (
-                <div key={index} className="py-1 text-gray-700">
-                    {message}
-                </div>
-        ))
+        {showMessages ? (
+            messages.length > 0 ? (
+                messages.map((message, index) => (
+                    <div key={index} className="py-1 text-gray-700">
+                        {message}
+                    </div>
+                ))
+            ) : (
+                <div className="text-gray-500">No messages yet...</div>
+            )
         ) : (
-            <div className="text-gray-500">No messages yet...</div>
+            <div className="text-gray-500">Submit a query...</div>
         )}
       </div>
       <div className="flex items-center space-x-2">
