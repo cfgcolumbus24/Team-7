@@ -48,53 +48,57 @@ function App() {
 
   return (
     <>
-      <div>
-        <h2> Occupation </h2>
-        <Chart1 data={barChartData}></Chart1>
-        <h2> TimeStamp </h2>
-        <Chart2 data={LineData}></Chart2>
-        <h2>Students Table</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>  </th>
-            <th>True</th>
-            <th>False</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Family History</td>
-            <td>40%</td>
-            <td>60%</td>
-          </tr>
-          <tr>
-            <td>Treatment</td>
-            <td>50%</td>
-            <td>50%</td>
-          </tr>
-          <tr>
-            <td>Growing Stress</td>
-            <td>51%</td>
-            <td>49%</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="two-column-container">
+        <div className="column">
+          <h2> Occupation </h2>
+          <Chart1 data={barChartData}></Chart1>
+          <h2> TimeStamp </h2>
+          <Chart2 data={LineData}></Chart2>
+          <h2>Background Info</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>  </th>
+              <th>True</th>
+              <th>False</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Family History</td>
+              <td>40%</td>
+              <td>60%</td>
+            </tr>
+            <tr>
+              <td>Treatment</td>
+              <td>50%</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>Growing Stress</td>
+              <td>51%</td>
+              <td>49%</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <div className="column">
+          <Chart
+          chartType="PieChart"
+          data={CountryData}
+          options={CountryTitle}
+          width={"100%"}
+          height={"400px"}
+          />
+          <Chart
+          chartType="PieChart"
+          data={IndoorDayData}
+          options={IndoorTitle}
+          width={"100%"}
+          height={"400px"}
+          />
+        </div>
       </div>
-      <Chart
-      chartType="PieChart"
-      data={CountryData}
-      options={CountryTitle}
-      width={"100%"}
-      height={"400px"}
-      />
-      <Chart
-      chartType="PieChart"
-      data={IndoorDayData}
-      options={IndoorTitle}
-      width={"100%"}
-      height={"400px"}
-      />
     </>
   )
 }
