@@ -4,16 +4,16 @@ function App() {
 
   const queryAI = async (inputText) => {
     try {
-      const response = fetch('/query', {
+      const response = fetch('http://localhost:5001/llm/query', {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json',
-        },
+        },  
         body: JSON.stringify({
           prompt: inputText
         })
       });
-      //console.log('API Response:', data);
+      return response;
     } catch (error) {
       console.error('Error Querying Data:', error);
     }
