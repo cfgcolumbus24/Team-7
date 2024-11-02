@@ -2,14 +2,61 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* :root {
-  --primary-color: rgba(39, 62, 127, 0.87);
+body {
+  background-color: #e4f4ff;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-body {
-  @apply min-w-[320px] min-h-screen bg-[#e4f4ff] flex items-center justify-center;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color: var(--primary-color);
-} */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+table {
+  width: 100%; /* Make the table take full width of its container */
+  border-collapse: collapse; /* Collapse borders for a cleaner look */
+  margin-top: 20px;
+  font-family: Arial, sans-serif; /* Use a clean, sans-serif font */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow around the table */
+}
+
+tbody td {
+  padding: 12px; /* Add padding to body cells */
+  border-bottom: 1px solid #ddd; /* Border under each row */
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

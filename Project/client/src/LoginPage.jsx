@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-function LoginPage() {
+function LoginPage( {setAuthenticated}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
   const handleLogin = () => {
     if (mockAuth(username, password)) {
-      navigate('/app');
+      setAuthenticated(true);
     } else {
       alert('Invalid credentials');
     }
