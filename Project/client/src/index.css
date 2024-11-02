@@ -2,7 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-:root {
+/* :root {
   --primary-color: rgba(39, 62, 127, 0.87);
 }
 
@@ -12,4 +12,4 @@ body {
   line-height: 1.5;
   font-weight: 400;
   color: var(--primary-color);
-}
+} */

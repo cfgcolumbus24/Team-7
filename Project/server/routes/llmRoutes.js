@@ -9,7 +9,7 @@ router.post("/query", async (req, res) => {
         res.end(JSON.stringify(result));
     } catch (err) {
         console.error(err);
-        res.status(500).send("Error ")
+        res.status(500).send("Error")
     }
 })
 

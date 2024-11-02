@@ -1,34 +1,26 @@
-import ChatBox from './ChatBox';
+import React, { useState } from "react";
+import PageSelector from "./PageSelector";
+import Dashboard from "./Dashboard";
+import QueryPage from "./QueryPage";
 
-function App() {
+const App = () => {
+  const [view, setView] = useState("dashboard");
 
-  const queryAI = async (inputText) => {
-    try {
-      const response = fetch('http://localhost:5001/llm/query', {
-        method: 'POST', 
-        headers: {
-          'Content-Type': 'application/json',
-        },  
-        body: JSON.stringify({
-          prompt: inputText
-        })
-      });
-      return response;
-    } catch (error) {
-      console.error('Error Querying Data:', error);
+  const renderView = () => {
+    switch (view) {
+      case "dashboard":
+        return <div className="p-8"><Dashboard /></div>;
+      case "query":
+        return <div className="p-8"><QueryPage /></div>;
+      default:
+        return <div className="p-8"><Dashboard /></div>;
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[#e4f4ff]">
-      <h1 className="text-2xl font-bold m-0 p-0 leading-tight">Data Search Tool</h1>
-      <div className="flex flex-col border rounded-md w-[700px] h-[600px] bg-white shadow-lg p-4">
-        <div className="flex-grow">
-          {/* Content above the input area, e.g., messages */}
-        </div>
-        {/* The ChatBox component will be at the bottom */}
-        <ChatBox onSubmit={queryAI} />
-      </div>
+    <div className="flex min-h-screen w-full">
+      <PageSelector onSelectView={setView} />
+      <div className=" ml-48 w-full">{renderView()}</div>
     </div>
   );
 };

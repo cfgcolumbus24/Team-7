@@ -8,7 +8,7 @@ const sample = "8/27/2014 11:29,Female,United States,Corporate,,No,Yes,1-14 days
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_KEY);
 const model = genAI.getGenerativeModel({ 
     model: "gemini-1.5-flash", 
-    systemInstruction: "Given the csv columns " + columns + "; and the sample data " + sample +"; give me a mongodb query for anything I ask for. Do not give me anything besides the query text. ",
+    systemInstruction: "Given the csv columns " + columns + "; and the sample data " + sample +"; give me a complete mongodb query (in the form db.collection.... )for anything I ask for. Do not give me anything besides the query text. ",
 });
 
 db.collection = db.collection("patients");
