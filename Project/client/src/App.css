@@ -48,3 +48,66 @@
   max-height: 100%; /* Adjust as needed */
   max-width: 100%; /* Adjust as needed */
 }
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.chart-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.chart-container h2 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Two-column container */
+.two-column-container {
+  display: flex;
+  max-width: 1200px; /* Optional: restrict max width for centered layout */
+  width: 100%;
+  gap: 20px; /* Space between columns */
+  padding: 20px; /* Padding around the container */
+}
+
+/* Individual column styling */
+.column {
+  flex: 1; /* Each column takes up equal space */
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for a full-width row */
+.full-width-row {
+  display: grid;
+  grid-template-columns: 1fr; /* Single full-width column */
+  width: 100vw; /* Takes up the full width */
+  padding: 20px; /* Optional: Add padding for spacing */
+  background-color: #f0f0f0; /* Optional: Background color for the row */
+  margin-top: 20px; /* Optional: Add space between other sections */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for visual depth */
+  border-radius: 8px; /* Optional: Rounded corners */
+}
+
+/* Adjust spacing within the content */
+.full-width-row > .content {
+  padding: 20px;
+}
+
+/* Responsive: Switch to a single column on smaller screens */
+@media (max-width: 768px) {
+  .two-column-container {
+    flex-direction: column;
+  }
+}
