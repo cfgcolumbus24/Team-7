@@ -1,8 +1,22 @@
 import ChatBox from './ChatBox';
 
 function App() {
-  const handleTextSubmit = (inputText) => {
-    console.log('Input: ', inputText);
+
+  const queryAI = async (inputText) => {
+    try {
+      const response = fetch('/query', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: inputText
+        })
+      });
+      //console.log('API Response:', data);
+    } catch (error) {
+      console.error('Error Querying Data:', error);
+    }
   };
 
   return (
@@ -13,10 +27,10 @@ function App() {
           {/* Content above the input area, e.g., messages */}
         </div>
         {/* The ChatBox component will be at the bottom */}
-        <ChatBox onSubmit={handleTextSubmit} />
+        <ChatBox onSubmit={queryAI} />
       </div>
     </div>
   );
-}
+};
 
 export default App;

@@ -23,4 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
+# Project config, API keys
 .env
