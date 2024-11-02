@@ -25,6 +25,7 @@ function App() {
 
   const handleTextSubmit = (inputText) => {
     console.log('Input: ', inputText);
+    setMessages((prevMessages) => [...prevMessages, inputText]);
   };
 
   return (

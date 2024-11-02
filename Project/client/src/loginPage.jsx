@@ -4,23 +4,28 @@ import { useNavigate } from 'react-router-dom';
 function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isNewUser, setIsNewUser] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (mockAuth(username, password)) {
-      navigate('/app');
-    } else {
-      alert('Invalid credentials');
-    }
-  };
+  const handleSubmit = async () => {
+    const endpoint = isNewUser ? `http://localhost:5001/api/users/register` : `http://localhost:5001/api/users/login`;
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    });
+    const result = await response.json();
+    console.log(result);
+    alert(result.message);
 
-  const showDemoCredentials = () => {
-    alert('Username: demoUser\nPassword: securePass123');
+    if (response.ok && !isNewUser) {
+      navigate('/app');
+    }
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#e4f4ff]">
-      <h1 className="text-2xl font-bold mb-4">Login</h1>
+      <h1 className="text-2xl font-bold mb-4">{isNewUser ? "Create Account" : "Login"}</h1>
       <input
         type="text"
         placeholder="Username"
@@ -36,27 +41,19 @@ function LoginPage() {
         className="mb-4 p-2 border border-gray-300 rounded"
       />
       <button
-        onClick={handleLogin}
+        onClick={handleSubmit}
         className="rounded-lg border-2 border-transparent px-4 py-2 text-base font-semibold bg-[#adcaff] hover:border-[#508aff] transition-colors mb-4"
       >
-        Login
+        {isNewUser ? "Register" : "Login"}
       </button>
       <button
-        onClick={showDemoCredentials}
+        onClick={() => setIsNewUser(!isNewUser)}
         className="text-sm text-blue-500 underline hover:text-blue-700"
       >
-        Click here for the username and password
+        {isNewUser ? "Already have an account? Log in" : "New to netCare access? Create account"}
       </button>
     </div>
   );
 }
-
-const mockAuth = (username, password) => {
-  const validCredentials = {
-    username: 'demoUser',
-    password: 'securePass123'
-  };
-  return username === validCredentials.username && password === validCredentials.password;
-};
 
 export default LoginPage;
