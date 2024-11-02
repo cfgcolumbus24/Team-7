@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import { useTable } from "react-table";
 import React from 'react';
 import { Bar } from 'react-chartjs-2'; // Importing Chart.js for visualizing the graph
+import { plugins } from 'chart.js';
 
 function QueryPage() {
   const [tableData, setTableData] = useState([]);
@@ -52,7 +53,7 @@ function QueryPage() {
     labels: ['Treated with Stress', 'Treated without Stress', 'Not Treated with Stress', 'Not Treated without Stress'],
     datasets: [
       {
-        label: 'Counts',
+        label: 'Relationship between treatment and stress',
         data: [30, 70, 50, 50], // Sample counts for each category
         backgroundColor: [
           'rgba(75, 192, 192, 0.6)',
@@ -78,7 +79,14 @@ function QueryPage() {
           {showGraph ? (
             // Render the graph when showGraph is true
             <div className="flex justify-center h-full">
-              <Bar data={graphData} options={{ responsive: true, maintainAspectRatio: false }} />
+              <Bar data={graphData} options={{ responsive: true, 
+                                               maintainAspectRatio: false,
+                                               plugins: {
+                                                legend: {
+                                                  display: false,
+                                                  title: true                                          
+                                                }
+                                               } }} />
             </div>
           ) : (
             // Render the table when showGraph is false
