@@ -19,13 +19,73 @@ function App() {
         accessor: "_id",
       },
       {
+        Header: "Timestamp",
+        accessor: "Timestamp",
+      },
+      {
+        Header: "Gender",
+        accessor: "Gender",
+      },
+      {
+        Header: "Country",
+        accessor: "Country",
+      },
+      {
+        Header: "Occupation",
+        accessor: "Occupation",
+      },
+      {
         Header: "Treatment",
         accessor: "treatment",
       },
       {
+        Header: "Self-Employed",
+        accessor: "self_employed",
+      },
+      {
+        Header: "Family History",
+        accessor: "family_history",
+      },
+      {
+        Header: "Days Indoors",
+        accessor: "Days_Indoors",
+      },
+      {
+        Header: "Growing Stress",
+        accessor: "Growing_Stress",
+      },
+      {
         Header: "Changed Habits",
         accessor: "Changes_Habits",
-      }
+      },
+      {
+        Header: "Mental Health History",
+        accessor: "Mental_Health_History",
+      },
+      {
+        Header: "Mood Swings",
+        accessor: "Mood_Swings",
+      },
+      {
+        Header: "Coping Struggles",
+        accessor: "Coping_Struggles",
+      },
+      {
+        Header: "Work Interest",
+        accessor: "Work_Interest",
+      },
+      {
+        Header: "Social Weakness",
+        accessor: "Social_Weakness",
+      },
+      {
+        Header: "Mental Health Interview",
+        accessor: "mental_health_interview",
+      },
+      {
+        Header: "Care Options",
+        accessor: "care_options",
+      },
     ],
     []
   );
@@ -47,7 +107,7 @@ function App() {
 
       // Minimize Data
       let smallData = [];
-      for (let i = 0; i <= 10; i++){
+      for (let i = 0; i <= 20; i++){
         smallData.push(data[i]);
       }
 
