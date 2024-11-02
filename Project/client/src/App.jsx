@@ -1,6 +1,28 @@
+import { useState } from 'react';
 import ChatBox from './ChatBox';
 
 function App() {
+  const [messages, setMessages] = useState([
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+    "Message",
+  ]);
+
   const handleTextSubmit = (inputText) => {
     console.log('Input: ', inputText);
   };
@@ -13,7 +35,7 @@ function App() {
           {/* Content above the input area, e.g., messages */}
         </div>
         {/* The ChatBox component will be at the bottom */}
-        <ChatBox onSubmit={handleTextSubmit} />
+        <ChatBox onSubmit={handleTextSubmit} messages={messages}/>
       </div>
     </div>
   );

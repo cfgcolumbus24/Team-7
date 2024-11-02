@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const ChatBox = ({ onSubmit }) => {
+const ChatBox = ({ onSubmit, messages }) => {
   const [text, setText] = useState('');
 
   const handleChange = (event) => setText(event.target.value);
@@ -18,9 +18,20 @@ const ChatBox = ({ onSubmit }) => {
   };
 
   return (
-    <div className="text-box">
-      <div className="mb-4">
-        <div className="text-gray-500">Messages displayed here...</div>
+    <div className="flex flex-col h-full">
+      <div
+        id="message-container"
+        className="flex-grow overflow-y-auto border rounded-md p-2 mb-2"
+      >
+        {messages.length > 0 ? (
+            messages.map((message, index) => (
+                <div key={index} className="py-1 text-gray-700">
+                    {message}
+                </div>
+        ))
+        ) : (
+            <div className="text-gray-500">No messages yet...</div>
+        )}
       </div>
       <div className="flex items-center space-x-2">
         <input
@@ -29,6 +40,7 @@ const ChatBox = ({ onSubmit }) => {
           value={text}
           onChange={handleChange}
           onKeyDown={handleKeyPress}
+          aria-label="Message input"
           className="flex-1 p-2 rounded-md border border-[rgba(39,62,127,0.87)] text-gray-700"
         />
         <button
@@ -43,6 +55,7 @@ const ChatBox = ({ onSubmit }) => {
 };
 ChatBox.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  messages: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default ChatBox;
