@@ -13,5 +13,14 @@ const model = genAI.getGenerativeModel({
 
 export async function query(prompt) {
     const result = await model.generateContent(prompt);
-    console.log(result.response.text());
+    let query = result.response.text();
+    const lines = query.split('\n');
+  
+    // Remove the first and last lines
+    lines.shift(); // Removes the first line
+    lines.pop();   // Removes the last line
+
+    // Join the remaining lines back into a string
+    query = lines.join('\n');
+    console.log(query);
 }
