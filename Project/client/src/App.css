@@ -44,6 +44,23 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* CSS for a full-width row */
+.full-width-row {
+  display: grid;
+  grid-template-columns: 1fr; /* Single full-width column */
+  width: 100vw; /* Takes up the full width */
+  padding: 20px; /* Optional: Add padding for spacing */
+  background-color: #f0f0f0; /* Optional: Background color for the row */
+  margin-top: 20px; /* Optional: Add space between other sections */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for visual depth */
+  border-radius: 8px; /* Optional: Rounded corners */
+}
+
+/* Adjust spacing within the content */
+.full-width-row > .content {
+  padding: 20px;
+}
+
 /* Responsive: Switch to a single column on smaller screens */
 @media (max-width: 768px) {
   .two-column-container {
