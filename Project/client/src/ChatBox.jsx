@@ -17,6 +17,10 @@ const ChatBox = ({ onSubmit }) => {
     if (event.key === 'Enter') handleSubmit();
   };
 
+  const handleGenerateGraph = () => {
+    return;
+  }
+
   return (
     <div className="text-box">
       <div className="mb-4">
