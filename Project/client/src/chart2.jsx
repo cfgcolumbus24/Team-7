@@ -29,10 +29,10 @@ const Chart2 = ({ data }) => {
     datasets: [
       {
         label: 'Dataset 2',
-        data: [272424, 7152,40],
+        data: [272424, 2384, 7152, 3598, 40],
         fill: false,
         backgroundColor: 'rgba(75,192,192,0.4)',
-        borderColor: 'rgba(75,192,192,1)',
+        borderColor: 'rgba(75,192,192,1)'
       },
     ],
   };
