@@ -11,7 +11,7 @@ function App() {
     ];
 
     const options = {
-      title: "Gender Data",
+      title: "Respondent gender",
       pieHole: 0.4,
       is3D: false,
     };
@@ -57,11 +57,11 @@ function App() {
   ];
 
   const CountryTitle = {
-    title: "Data from different countries",
+    title: "Respondent country of orgin",
   };
 
   const IndoorTitle = {
-    title: "Indoor Days Data",
+    title: "Indoor Days",
   };
 
   const barChartData = {
@@ -70,7 +70,7 @@ function App() {
   };
 
   const LineData = {
-    labels: ["8/27/2014", "2/10/2015", "2/1/2016"],
+    labels: ["8/2014", "9/2014","2/2015","3/2015", "2/2016"],
     datasets: [
       {
         label: 'First dataset',
@@ -86,10 +86,11 @@ function App() {
     <>
       <div className="two-column-container">
         <div className="column">
-          <h2> Occupation </h2>
+          <h2> Patient Occupation </h2>
           <Chart1 data={barChartData}></Chart1>
           <h2> TimeStamp </h2>
           <Chart2 data={LineData}></Chart2>
+          <h3>Time the survey was submitted</h3>
           <h2>Background Info</h2>
         <table>
           <thead>
@@ -101,17 +102,17 @@ function App() {
           </thead>
           <tbody>
             <tr>
-              <td>Family History</td>
+              <td>Do you family history</td>
               <td>40%</td>
               <td>60%</td>
             </tr>
             <tr>
-              <td>Treatment</td>
+              <td>Have you sought treatment for a mental health condition?</td>
               <td>50%</td>
               <td>50%</td>
             </tr>
             <tr>
-              <td>Growing Stress</td>
+              <td>Do you have growing stress?</td>
               <td>51%</td>
               <td>49%</td>
             </tr>
