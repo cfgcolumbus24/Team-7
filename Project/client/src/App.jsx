@@ -11,7 +11,7 @@ const App = () => {
       case "dashboard":
         return <div className="p-8"><Dashboard /></div>;
       case "query":
-        return <div className="p-8"><QueryPage /></div>;
+        return <div className=""><QueryPage /></div>;
       default:
         return <div className="p-8"><Dashboard /></div>;
     }
@@ -20,7 +20,7 @@ const App = () => {
   return (
     <div className="flex min-h-screen w-full">
       <PageSelector onSelectView={setView} />
-      <div className=" ml-48 w-full">{renderView()}</div>
+      <div className=" ml-24 w-full">{renderView()}</div>
     </div>
   );
 };

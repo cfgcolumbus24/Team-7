@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Example custom CSS if needed */
+.table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 100%; /* Adjust as needed */
+  max-width: 100%; /* Adjust as needed */
+}

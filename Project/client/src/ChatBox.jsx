@@ -20,7 +20,6 @@ const ChatBox = ({ onSubmit }) => {
   return (
     <div className="text-box">
       <div className="mb-4">
-        <div className="text-gray-500">Messages displayed here...</div>
       </div>
       <div className="flex items-center space-x-2">
         <input

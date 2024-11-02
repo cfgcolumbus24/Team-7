@@ -18,13 +18,46 @@ function QueryPage() {
         accessor: "_id",
       },
       {
+        Header: "Timestamp",
+        accessor: "Timestamp",
+      },
+      {
+        Header: "Gender",
+        accessor: "Gender",
+      },
+      {
+        Header: "Country",
+        accessor: "Country",
+      },
+      {
+        Header: "Occupation",
+        accessor: "Occupation",
+      },
+      {
         Header: "Treatment",
         accessor: "treatment",
       },
       {
+        Header: "Self-Employed",
+        accessor: "self_employed",
+      },
+      {
+        Header: "Family History",
+        accessor: "family_history",
+      },
+      {
+        Header: "Days Indoors",
+        accessor: "Days_Indoors",
+      },
+      {
+        Header: "Growing Stress",
+        accessor: "Growing_Stress",
+      },
+      {
         Header: "Changed Habits",
         accessor: "Changes_Habits",
-      }
+      },
+
     ],
     []
   );
@@ -46,7 +79,7 @@ function QueryPage() {
 
       // Minimize Data
       let smallData = [];
-      for (let i = 0; i <= 10; i++){
+      for (let i = 0; i <= 20; i++){
         smallData.push(data[i]);
       }
 
@@ -76,27 +109,31 @@ function QueryPage() {
 // };
 
 return (
-  <div className="flex flex-col items-center justify-center min-h-screen bg-[#e4f4ff]">
+  <div className="flex flex-col items-center justify-center min-h-screen ">
     <h1 className="text-2xl font-bold m-0 p-0 leading-tight">Data Search Tool</h1>
-    <div className="flex flex-col border rounded-md w-[700px] h-[600px] bg-white shadow-lg p-4">
-      <div className="flex-grow">
-        <table {...getTableProps()}>
-          <thead>
-            {headerGroups.map(headerGroup => (
+    <div className="flex flex-col border rounded-md w-full h-[600px] bg-white">
+    <div className="flex-grow overflow-auto">
+        <table {...getTableProps()} className="min-w-full border-collapse border border-gray-300">
+          <thead className="border-b border-gray-400">
+            {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps()} className="px-4 py-2 border-r border-gray-300">
+                    {column.render("Header")}
+                  </th>
                 ))}
               </tr>
             ))}
           </thead>
-          <tbody {...getTableBodyProps()}>
-            {rows.map(row => {
+          <tbody>
+            {rows.map((row) => {
               prepareRow(row);
               return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => (
-                    <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                <tr {...row.getRowProps()} className="border-b border-gray-300">
+                  {row.cells.map((cell) => (
+                    <td {...cell.getCellProps()} className="px-4 py-2 border-r border-gray-300">
+                      {cell.render("Cell")}
+                    </td>
                   ))}
                 </tr>
               );
