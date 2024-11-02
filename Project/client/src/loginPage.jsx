@@ -7,11 +7,15 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (username === 'user' && password === 'password') { // Simple check
-      navigate('/app'); // Redirect to App page
+    if (mockAuth(username, password)) {
+      navigate('/app');
     } else {
       alert('Invalid credentials');
     }
+  };
+
+  const showDemoCredentials = () => {
+    alert('Username: demoUser\nPassword: securePass123');
   };
 
   return (
@@ -27,18 +31,32 @@ function LoginPage() {
       <input
         type="password"
         placeholder="Password"
-        value={1234}
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
         className="mb-4 p-2 border border-gray-300 rounded"
       />
       <button
         onClick={handleLogin}
-        className="rounded-lg border-2 border-transparent px-4 py-2 text-base font-semibold bg-[#adcaff] hover:border-[#508aff] transition-colors"
+        className="rounded-lg border-2 border-transparent px-4 py-2 text-base font-semibold bg-[#adcaff] hover:border-[#508aff] transition-colors mb-4"
       >
         Login
+      </button>
+      <button
+        onClick={showDemoCredentials}
+        className="text-sm text-blue-500 underline hover:text-blue-700"
+      >
+        Click here for the username and password
       </button>
     </div>
   );
 }
+
+const mockAuth = (username, password) => {
+  const validCredentials = {
+    username: 'demoUser',
+    password: 'securePass123'
+  };
+  return username === validCredentials.username && password === validCredentials.password;
+};
 
 export default LoginPage;
