@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post("/query", async (req, res) => {
     try {
-        await query(req.body.prompt);
+        let result = await query(req.body.prompt);
         res.end();
     } catch (err) {
         console.error(err);
