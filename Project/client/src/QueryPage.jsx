@@ -5,11 +5,7 @@ import React from 'react';
 
 function QueryPage() {
 
-  const [tableData, setTableData] = useState([
-    { _id: "1", treatment: "yes", Changes_Habits: "yes" },
-    { _id: "2", treatment: "yes", Changes_Habits: "no" },
-    { _id: "3", treatment: "no", Changes_Habits: "no" }
-  ]);
+  const [tableData, setTableData] = useState([]);
 
   const columns = React.useMemo(
     () => [
@@ -110,7 +106,7 @@ function QueryPage() {
 
 return (
   <div className="flex flex-col items-center justify-center min-h-screen ">
-    <h1 className="text-2xl font-bold m-0 p-0 leading-tight">Data Search Tool</h1>
+    <h1 className="text-2xl font-bold m-0 pb-8 leading-tight">Natural Language Querying</h1>
     <div className="flex flex-col border rounded-md w-full h-[600px] bg-white">
     <div className="flex-grow overflow-auto">
         <table {...getTableProps()} className="min-w-full border-collapse border border-gray-300">
