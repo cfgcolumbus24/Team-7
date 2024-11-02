@@ -13,7 +13,7 @@ function LoginPage({ setAuthenticated }) {
   };
 
   const showDemoCredentials = () => {
-    alert('Username: demoUser\nPassword: securePass123');
+    alert('Username: admin\nPassword: admin');
   };
 
   return (
@@ -64,8 +64,8 @@ function LoginPage({ setAuthenticated }) {
 
 const mockAuth = (username, password) => {
   const validCredentials = {
-    username: 'demoUser',
-    password: 'securePass123'
+    username: 'admin',
+    password: 'admin'
   };
   return username === validCredentials.username && password === validCredentials.password;
 };
