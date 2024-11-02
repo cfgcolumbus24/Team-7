@@ -25,5 +25,5 @@ export async function query(prompt) {
 
     let queryResult = await eval(query); // query contains a mongodb query. Eval to execute query.
     console.log(queryResult); 
-    return queryResult
+    return queryResult;
 }
